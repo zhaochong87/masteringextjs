@@ -64,6 +64,35 @@ Ext.define('Packet.controller.Login', {
                 params: {
                     user: user,
                     password: pass
+                },
+                success: function(conn, response, options){
+                    //var result = Ext.JSON.decode(conn.responseText);
+                    var result = Ext.JSON.decode(conn.responseText, true);
+                    if(!result){
+                        result = {};
+                        result.success = false;
+                        result.msg = conn.responseText;
+                    }
+                    if(result.success){
+                        login.close();
+                        Ext.create('Packet.view.Viewport');
+                    }else{
+                        Ext.Msg.show({
+                            title: 'Fail!',
+                            msg: result.msg,
+                            icon: Ext.Msg.Error,
+                            buttons: Ext.Msg.ok
+                        });
+                    }
+
+                },
+                failure: function(conn, response, options, eOpts){
+                    Ext.Msg.show({
+                        title: 'Error!',
+                        msg: conn.responseText,
+                        icon: Ext.Msg.Error,
+                        buttons: Ext.Msg.ok
+                    })
                 }
             });
         }
