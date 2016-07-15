@@ -9,10 +9,10 @@ Ext.application({
 
     extend: 'Packet.Application',
 
-     //autoCreateViewport: true
+     autoCreateViewport: false
 
 
-    // 加载页面
+   /* // 加载页面
     splashscreen: {},
 
     // 应用启动前，显示加载页面（防止空白）
@@ -45,7 +45,8 @@ Ext.application({
                 listeners: {
                     afteranimate: function(el, startTime, eOpts ){
                         //Ext.widget('login');
-                        Ext.create('Packet.view.Login');
+                        //Ext.create('Packet.view.Login');
+                        Ext.widget('login');
                     }
                 }
             });
@@ -57,5 +58,5 @@ Ext.application({
         });
 
          task.delay(2000);
-    }
+    }*/
 });

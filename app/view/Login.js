@@ -2,12 +2,12 @@
  * Created by 343451 on 2016/7/12.
  */
 
-Ext.apply(Ext.form.field.VTypes, {
+/*Ext.apply(Ext.form.field.VTypes, {
     customPass: function (val, field) {
         return /^((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})/.test(val);
     },
-    customPassText: '²»ÊÇÒ»¸öºÏ·¨ÃÜÂë¡£ÃÜÂë³¤¶ÈÓ¦ÔÚ6~20¸ö×Ö·ûÖ®¼ä£¬±ØĞë°üº¬ÖÁÉÙÒ»¸öÊı×Ö¡¢Ò»¸öĞ¡Ğ´×ÖÄ¸¡¢Ò»¸ö´óĞ´×ÖÄ¸¡¢Ò»¸öÌØ±ğ×Ö·û£¨@#$%£©.',
-});
+    customPassText: 'ä¸æ˜¯ä¸€ä¸ªåˆæ³•å¯†ç ã€‚å¯†ç é•¿åº¦åº”åœ¨6~20ä¸ªå­—ç¬¦ä¹‹é—´ï¼Œå¿…é¡»åŒ…å«è‡³å°‘ä¸€ä¸ªæ•°å­—ã€ä¸€ä¸ªå°å†™å­—æ¯ã€ä¸€ä¸ªå¤§å†™å­—æ¯ã€ä¸€ä¸ªç‰¹åˆ«å­—ç¬¦ï¼ˆ@#$%ï¼‰.',
+});*/
 
 
 Ext.define('Packet.view.Login', {
@@ -37,7 +37,7 @@ Ext.define('Packet.view.Login', {
                 anchor: '100%',
                 labelWidth: 60,
                 allowBlank: false,
-                vtype: 'alphanum',
+                vtype: 'alphanum',  // å­—æ¯(alpha)å’Œæ•°å­—(num)
                 minLength: 3,
                 msgTarget: 'under'
             },
@@ -51,8 +51,37 @@ Ext.define('Packet.view.Login', {
                     inputType: 'password',
                     name: 'password',
                     fieldLabel: 'Password',
-                    maxLength: 15,
-                    vtype: customPass
+                    maxLength: 15/*,
+                    vtype: customPass*/
+                }
+            ],
+            dockedItems: [
+                {
+                    xtype: 'toolbar',
+                    dock: 'bottom',
+                    items: [
+                        /*{
+                            xtype: 'translation'
+                        },*/
+                        {
+                            xtype: 'tbfill'
+                        },
+                        {
+                            xtype: 'button',
+                            itemId: 'cancel',
+                            iconCls: 'cancel',
+                            text: 'Cancel'
+                            //text: translations.cancel
+                        },
+                        {
+                            xtype: 'button',
+                            itemId: 'submit',
+                            formBind: true,     // æŠŠSubmitæŒ‰é’®ç»‘å®šåˆ°è¡¨å•ï¼Œåªæœ‰è¡¨å•çš„å®¢æˆ·ç«¯éªŒè¯é€šè¿‡æ—¶ï¼Œæ‰èƒ½å¯ç”¨æäº¤æŒ‰é’®ã€‚
+                            iconCls: 'key-go',
+                            text: 'Submit'
+                            //text: translations.submit
+                        }
+                    ]
                 }
             ]
         }
