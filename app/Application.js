@@ -40,6 +40,7 @@ Ext.define('Packet.Application', {
     // ������������Դ���غ�ִ��
     launch: function () {
 
+        // 启用工具提示
         Ext.tip.QuickTipManager.init();
 
         var task = new Ext.util.DelayedTask(function () {
