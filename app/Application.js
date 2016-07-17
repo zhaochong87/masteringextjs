@@ -22,10 +22,10 @@ Ext.define('Packet.Application', {
         // TODO: add stores here
     ],
 
-    // ¼ÓÔØÒ³Ãæ
+    // ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½
     splashscreen: {},
 
-    // Ó¦ÓÃÆô¶¯Ç°£¬ÏÔÊ¾¼ÓÔØÒ³Ãæ£¨·ÀÖ¹¿Õ°×£©
+    // Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½Ò³ï¿½æ£¨ï¿½ï¿½Ö¹ï¿½Õ°×£ï¿½
     init: function () {
 
         console.log('init');
@@ -37,8 +37,10 @@ Ext.define('Packet.Application', {
         Ext.DomHelper.insertFirst(Ext.query('.x-mask-msg')[0], {cls: 'x-splash-icon'});
     },
 
-    // Æô¶¯º¯Êý£¬×ÊÔ´¼ÓÔØºóÖ´ÐÐ
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½Øºï¿½Ö´ï¿½ï¿½
     launch: function () {
+
+        Ext.tip.QuickTipManager.init();
 
         var task = new Ext.util.DelayedTask(function () {
 
