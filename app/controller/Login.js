@@ -120,7 +120,7 @@ Ext.define('Packet.controller.Login', {
         button.up('form').getForm().reset();
     },
     onTextfieldSpecialKey: function (field, e, options) {
-        if (e.getKey == e.ENTER) {
+        if (e.getKey() == e.ENTER) {
             var submitBtn = field.up('form').down('button#submit');
             submitBtn.fireEvent('click', submitBtn, e, options);
         }
