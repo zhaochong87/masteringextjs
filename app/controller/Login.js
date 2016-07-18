@@ -28,7 +28,15 @@ Ext.define('Packet.controller.Login', {
     },
 
     views: [
-        'Login'
+        'Login',
+        'authentication.CapsLockTooltip'    // view目录里的子目录authentication里
+    ],
+
+    refs: [
+        {
+            ref: 'capslockTooltip',
+            selector: 'capslocktooltip'
+        }
     ],
 
     /**
@@ -44,6 +52,9 @@ Ext.define('Packet.controller.Login', {
             },
             'login form textfield': {
                 specialkey: this.onTextfieldSpecialKey
+            },
+            'login form textfield[name=password]': {
+                keypress: this.onTextFieldKeyPress
             }
         });
 
@@ -125,5 +136,29 @@ Ext.define('Packet.controller.Login', {
             submitBtn.fireEvent('click', submitBtn, e, options);
         }
         
+
+    },
+    onTextFieldKeyPress: function(field, e, options){
+        // 获取按键
+        var charCode = e.getCharCode();
+
+        if((e.shiftKey && charCode >= 97 && charCode <= 122) ||
+            (!e.shiftKey && charCode >= 65 && charCode <= 90)){
+
+            if(this.getCapslockTooltip() === undefined){
+                Ext.widget('capslocktooltip');
+            }
+
+            this.getCapslockTooltip().show();
+
+        } else {    // 大写键未激活时
+
+            if(this.getCapslockTooltip() !== undefined){
+                Ext.widget('capslocktooltip');
+            }
+
+            this.getCapslockTooltip().hide();
+        }
+
     }
 });

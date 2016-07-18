@@ -10,7 +10,7 @@ Ext.define('Packet.Application', {
 
     views: [
         // TODO: add views here
-        'Login'
+        //'Login'
     ],
 
     controllers: [

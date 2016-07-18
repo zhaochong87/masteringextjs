@@ -24,3 +24,11 @@
     margin-bottom: 15px;
     height: 100px;
 }
+
+/* 大写提示样式 */
+.capslock {
+    background: url('../icons/bullet_error.png') no-repeat center left;
+    padding: 2px;
+    padding-left: 20px;
+    font-weight: 700;
+}
